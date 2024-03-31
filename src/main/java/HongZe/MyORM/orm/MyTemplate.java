@@ -99,7 +99,7 @@ public class MyTemplate {
 		return list.get(0);
 	}
 
-	private <T> Mapper<T> getMapper(Class<T> clazz) {
+	public <T> Mapper<T> getMapper(Class<T> clazz) {
 		// TODO Auto-generated method stub
 		@SuppressWarnings("unchecked")
 		Mapper<T> mapper = (Mapper<T>) this.classMapping.get(clazz);
@@ -202,5 +202,15 @@ public class MyTemplate {
 		Mapper<T> mapper = getMapper(clazz);
 		logger.info("SQL:" + mapper.deleteSQL);
 		jdbcTemplate.update(mapper.deleteSQL, id);
+	}
+
+	@SuppressWarnings("rawtypes")
+	public Select select(String... selectFields) {
+		return new Select(new Criteria(this), selectFields);
+	}
+
+	public <T> From<T> from(Class<T> entityClass) {
+		Mapper<T> mapper = getMapper(entityClass);
+		return new From<T>(new Criteria<T>(this), mapper);
 	}
 }
