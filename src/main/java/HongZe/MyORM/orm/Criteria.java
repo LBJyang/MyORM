@@ -17,6 +17,7 @@ import jakarta.persistence.NonUniqueResultException;
  * 
  */
 public class Criteria<T> {
+	// all the info
 	MyTemplate myTemplate;
 	List<String> select = null;
 	Mapper<T> mapper;
@@ -28,6 +29,11 @@ public class Criteria<T> {
 	Class<T> cls;
 	String table = null;
 
+	/**
+	 * constructor,get the template.
+	 * 
+	 * @param myTemplate
+	 */
 	public Criteria(MyTemplate myTemplate) {
 		// TODO Auto-generated constructor stub
 		this.myTemplate = myTemplate;

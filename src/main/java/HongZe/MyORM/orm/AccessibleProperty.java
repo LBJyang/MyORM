@@ -32,6 +32,7 @@ public class AccessibleProperty {
 		return this.getter.isAnnotationPresent(Id.class);
 	}
 
+	// If a field do not have a Column Annotation,it default be insertable.
 	boolean isInsertable() {
 		if (isId()) {
 			return false;
@@ -66,6 +67,11 @@ public class AccessibleProperty {
 		return gt == GenerationType.IDENTITY;
 	}
 
+	/**
+	 * Given pd,set the getter\setter\type\name\columnName 0f the property.
+	 * 
+	 * @param pd
+	 */
 	public AccessibleProperty(PropertyDescriptor pd) {
 		// TODO Auto-generated constructor stub
 		this.getter = pd.getReadMethod();

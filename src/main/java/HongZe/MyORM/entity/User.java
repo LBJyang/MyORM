@@ -8,7 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 /**
- * The Entity For Demo
+ * The User Entity
  */
 @Entity
 @Table(name = "users")

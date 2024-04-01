@@ -19,7 +19,6 @@ public class Where<T> extends CriteriaQuery<T> {
 			this.criteria.whereParams.add(object);
 		}
 	}
-	
 
 	public OrderBy<T> orderBy(String orderBy) {
 		return new OrderBy<T>(criteria, orderBy);

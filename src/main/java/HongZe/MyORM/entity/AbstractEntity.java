@@ -16,7 +16,7 @@ import jakarta.persistence.PrePersist;
 import jakarta.persistence.Transient;
 
 /**
- * 
+ * The Super Entity Abstract Class
  */
 @MappedSuperclass
 public abstract class AbstractEntity {

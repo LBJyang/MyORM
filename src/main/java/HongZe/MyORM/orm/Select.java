@@ -6,8 +6,8 @@ package HongZe.MyORM.orm;
 import java.util.Arrays;
 
 /**
- * 
- * 
+ * To combine the query sql,start here. method from return Class From,where set
+ * target table.
  */
 @SuppressWarnings("rawtypes")
 public final class Select extends CriteriaQuery {

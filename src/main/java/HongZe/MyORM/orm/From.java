@@ -6,7 +6,8 @@ package HongZe.MyORM.orm;
 import java.util.List;
 
 /**
- * 
+ * set the table,where method returns Where Class,where you can set the query
+ * params.
  */
 public class From<T> extends CriteriaQuery<T> {
 
