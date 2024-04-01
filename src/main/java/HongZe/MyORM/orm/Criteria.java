@@ -44,8 +44,8 @@ public class Criteria<T> {
 		if (orderBy != null) {
 			sb.append(" ORDER BY ").append(String.join(",", orderBy));
 		}
-		if (offset > 0 && maxResults > 0) {
-			sb.append("LIMIT ? ?");
+		if (offset >= 0 && maxResults > 0) {
+			sb.append(" LIMIT ?, ?");
 		}
 		return sb.toString();
 	}
@@ -65,7 +65,9 @@ public class Criteria<T> {
 	}
 
 	List<T> list() {
-		return myTemplate.jdbcTemplate.query(sql(), mapper.rowMapper, params());
+		String sql = sql();
+		Object[] selectParams = params();
+		return myTemplate.jdbcTemplate.query(sql, mapper.rowMapper, selectParams);
 	}
 
 	T first() {

@@ -24,7 +24,7 @@ public class From<T> extends CriteriaQuery<T> {
 	 * @return
 	 */
 	public Where<T> where(String clause, Object... args) {
-		return new Where<T>(criteria, clause, args);
+		return new Where<>(criteria, clause, args);
 	}
 
 	public OrderBy<T> orderBy(String orderBy) {

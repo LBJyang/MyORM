@@ -81,8 +81,7 @@ public class Mapper<T> {
 				+ " WHERE " + this.id.columnName + " = ?";
 		this.insertSQL = "INSERT INTO " + this.tableName + "("
 				+ String.join(",",
-						this.allInsertableAccessibleProperties.stream().map(p -> p.columnName + " = ?")
-								.toArray(String[]::new))
+						this.allInsertableAccessibleProperties.stream().map(p -> p.columnName).toArray(String[]::new))
 				+ ") VALUES (" + numOfQuestions(this.allInsertableAccessibleProperties.size()) + ")";
 		this.deleteSQL = "DELETE FROM " + this.tableName + " WHERE " + this.id.columnName + " = ?";
 	}

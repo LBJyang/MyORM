@@ -211,6 +211,6 @@ public class MyTemplate {
 
 	public <T> From<T> from(Class<T> entityClass) {
 		Mapper<T> mapper = getMapper(entityClass);
-		return new From<T>(new Criteria<T>(this), mapper);
+		return new From<>(new Criteria<>(this), mapper);
 	}
 }

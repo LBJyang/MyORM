@@ -3,6 +3,7 @@
  */
 package HongZe.MyORM.orm;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,12 +13,13 @@ public class Where<T> extends CriteriaQuery<T> {
 
 	public Where(Criteria<T> criteria, String clause, Object... params) {
 		super(criteria);
-		// TODO Auto-generated constructor stub
 		this.criteria.where = clause;
+		this.criteria.whereParams = new ArrayList<>();
 		for (Object object : params) {
 			this.criteria.whereParams.add(object);
 		}
 	}
+	
 
 	public OrderBy<T> orderBy(String orderBy) {
 		return new OrderBy<T>(criteria, orderBy);
@@ -39,7 +41,7 @@ public class Where<T> extends CriteriaQuery<T> {
 		return criteria.unique();
 	}
 
-	public T fisrt() {
+	public T first() {
 		return criteria.first();
 	}
 }
